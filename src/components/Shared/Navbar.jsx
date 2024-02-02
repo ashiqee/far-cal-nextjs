@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import React from 'react';
 import ButtonPrimary from './compontent/Button/ButtonPrimary';
+import ThemeSwitcher from '@/app/ThemeSwitcher';
 
 const Navbar = () => {
    const pathName = usePathname()
@@ -33,7 +34,8 @@ const Navbar = () => {
             }
             </ul>
        </div>
-     <section>
+     <section className="flex gap-3 items-center">
+        <ThemeSwitcher/>
         <ButtonPrimary btnText={"Login"}/>
     
      </section>
