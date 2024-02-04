@@ -21,6 +21,9 @@ const Navbar = () => {
          },
         {
         menuName:"About",path:'/about'
+         },
+        {
+        menuName:"Dashboard",path:'/dashboard'
          }
 ]
     return (
