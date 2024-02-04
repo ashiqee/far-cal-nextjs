@@ -22,12 +22,15 @@
 
 body {
   color: #000;
-  background-color: #fff;
+background: #E8E6EE;
+background: linear-gradient(135deg, #E8E6EE, #D3ECF1);
 }
 
 [data-theme="dark"] body {
-  background-color: #000;
-  color: #fff;
+
+  background: #010101;
+  background: linear-gradient(135deg, #010101, #233849);;
+  color: rgb(236, 239, 241);
 }
 /* @layer utilities {
   .text-balance {

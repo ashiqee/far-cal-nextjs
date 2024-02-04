@@ -1,16 +1,39 @@
 "use client"
 import { useState } from "react";
 import RadarChart from "./RadarChart";
+import {Select, SelectItem} from "@nextui-org/react";
+
 const CalculateForm = () => {
     const [baseFar, setBaseFar] = useState("0.00");
     const [highestFar, setHighestFar] = useState("0.00");
     const [area, setArea] = useState([]);
 
+    const sizes = ["sm"];
+
 
     const zoneData=[
-        {ZoneId:1,Zone:"dhaka"}
+        {ZoneId:1,Zone:"Dhaka"},
+        {ZoneId:2,Zone:"Tangail"},
+        {ZoneId:3,Zone:"Raj"},
+        {ZoneId:4,Zone:"CTTG"},
+        {ZoneId:5,Zone:"SHY"},
     ]
 
+
+    const wards= [
+      {wardName:"DNCC_Ward-01-P"},
+      {wardName:" DNCC_Ward-01-S"},
+      {wardName:"DNCC_Ward-02"},
+         
+    ]
+
+
+    const classData = [
+      {classA:"A1 (একক পরিবার)"},
+      {classA:"A2 (দুই পরিবার)"},
+      {classA:"A3 (ফ্ল্যাট / এপার্টমেন্ট)"},
+      {classA:"A4 (মেস/ বোর্ডিং/হোস্টেল)"},
+    ]
     return (
         <div>
              <div className="container mx-auto">
@@ -20,11 +43,30 @@ const CalculateForm = () => {
           <form>
             <div className=" border-gray-300 rounded-xl p-6 grid grid-cols-1 gap-6 bg-base-100 hover:shadow-2xl  shadow-lg ">
               <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 ">
-                <div className=" border flex  justify-between items-center rounded-md">
-                  <label className="text-md font-md w-16 pl-1">
+
+{/* nextUI SELECT  */}
+<div>
+    <Select 
+            size={'sm'}
+            label="Select Zone" 
+            className="max-w-full" 
+          >
+             {zoneData.map((zone) => (
+            <SelectItem key={zone.ZoneId} value={zone.Zone}>
+              {zone.Zone}
+            </SelectItem>
+          ))}
+        </Select>
+  </div>
+
+
+
+
+                {/* <div className=" border flex  justify-between items-center rounded-md"> */}
+                  {/* <label className="text-md font-md w-16 pl-1">
                     Zone <span className="text-red-500">*</span>
-                  </label>
-                  <select
+                  </label> */}
+                  {/* <select
                     onChange={(e) => handleZoneId(e.target.value)}
                     className="w-full border p-2 rounded"
                   >
@@ -33,41 +75,65 @@ const CalculateForm = () => {
                         {zone.Zone}
                       </option>
                     ))}
-                  </select>
-                </div>
-                <div className=" border flex justify-between items-center rounded-md">
-                  <label className="text-md font-md w-16 pl-1" htmlFor="">
-                    Area <span className="text-red-500">*</span>
-                  </label>
-                  <select name="area" className="border w-full   p-2 rounded">
-                    {area?.map((areaData, i) => (
-                      <option key={i}>{areaData.Locality_thana}</option>
-                    ))}
-                  </select>
-                </div>
+                  </select> */}
+
+
+
+
+                {/* </div> */}
+
+
+{/* nextUI SELECT  */}
+<div>
+    <Select 
+            size={'sm'}
+            label="Select Area" 
+            className="max-w-full" 
+          >
+             {area.map((areaData) => (
+            <SelectItem key={areaData.ZoneId} value={areaData.Locality_thana}>
+              {areaData.Locality_thana}
+            </SelectItem>
+          ))}
+        </Select>
+  </div>
+
+                
               </div>
               <div className=" gap-4 grid grid-cols-1 md:grid-cols-2 ">
-                <div className=" border flex  justify-between items-center rounded-md">
-                  <label className="text-md font-md w-16 pl-1">
-                    Ward <span className="text-red-500">*</span>
-                  </label>
-                  <select className="w-full border p-2 rounded">
-                    <option>DNCC_Ward-01-P</option>
-                    <option>DNCC_Ward-01-S</option>
-                    <option>DNCC_Ward-02</option>
-                  </select>
-                </div>
-                <div className=" border flex justify-between items-center rounded-md">
-                  <label className="md:text-md text-sm font-md  " htmlFor="">
-                    <h2>ইমারত এর শ্রেণী (শুধু মাত্র A3 শ্রেণী আপাতত) </h2>
-                  </label>
-                  <select className="border p-2 rounded-md ">
-                    <option>A1 (একক পরিবার)</option>
-                    <option>A2 (দুই পরিবার)</option>
-                    <option>A3 (ফ্ল্যাট / এপার্টমেন্ট)</option>
-                    <option>A4 (মেস/ বোর্ডিং/হোস্টেল)</option>
-                  </select>
-                </div>
+
+                {/* nextUI SELECT  */}
+<div>
+    <Select 
+            size={'sm'}
+            label="Select Ward" 
+            className="max-w-full" 
+          >
+             {wards.map((ward) => (
+            <SelectItem key={ward.wardName} value={ward.wardName}>
+              {ward.wardName}
+            </SelectItem>
+          ))}
+        </Select>
+  </div>
+
+
+                  {/* nextUI SELECT  */}
+<div>
+    <Select 
+            size={'sm'}
+            label="ইমারত এর শ্রেণী (শুধু মাত্র A3 শ্রেণী আপাতত)" 
+            className="max-w-full" 
+          >
+             {classData.map((data) => (
+            <SelectItem key={data.classA} value={data.classA}>
+              {data.classA}
+            </SelectItem>
+          ))}
+        </Select>
+  </div>
+               
+              
               </div>
 
               <div className="grid grid-cols-1  gap-4">
