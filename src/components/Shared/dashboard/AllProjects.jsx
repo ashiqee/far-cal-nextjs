@@ -13,9 +13,9 @@ const AllProjects = () => {
         <div className="mt-10">
            
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 gap-4">
           {
-            projects.map((project)=> <ProjectsCard project={project}/>)
+            projects.map((project)=> <ProjectsCard key={project.id} project={project}/>)
            }
           </div>
         </div>

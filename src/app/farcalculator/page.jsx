@@ -1,4 +1,5 @@
 import CalculateForm from '@/components/FarCalculate/CalculateForm';
+import PlotCalculator from '@/components/FarCalculate/PlotCalculator';
 import DashboardNavBar from '@/components/Shared/dashboard/NavBar/DashboardNavBar';
 import React from 'react';
 
@@ -10,7 +11,8 @@ const FarCalculatePage = () => {
           জমি এর অবস্থান, রাস্তা এবং ক্ষেত্রফল সংক্রান্ত তথ্য
         </h2>
 
-        <CalculateForm />
+        {/* <CalculateForm /> */}
+        <PlotCalculator/>
         </div>
     );
 };
